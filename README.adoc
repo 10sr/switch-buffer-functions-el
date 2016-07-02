@@ -1,4 +1,4 @@
-= post-command-current-buffer-changed-functions-el
+= post-command-current-buffer-changed-functions
 
 Hook run when current buffer changed
 
@@ -14,7 +14,7 @@ interactive command, i.e. `post-command-hook` is called.
 When functions are hooked, they will be called with the previous buffer and
 the current buffer.  For example, if you eval:
 
-[source,lisp]
+[source,elisp]
 ----
 (add-hook 'post-command-current-buffer-changed-functions
           (lambda (prev cur) (message "%S -> %S" prev cur)))
