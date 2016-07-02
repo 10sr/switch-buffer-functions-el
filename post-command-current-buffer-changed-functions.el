@@ -1,7 +1,7 @@
 ;;; post-command-current-buffer-changed-functions.el --- Hook run when current buffer changed
 
 ;; Author: 10sr <8slashes+el [at] gmail [dot] com>
-;; URL: https://github.com/10sr/emacs-lisp
+;; URL: https://github.com/10sr/post-command-current-buffer-changed-functions-el
 ;; Version: 0.0.1
 ;; Keywords: hook utility
 
