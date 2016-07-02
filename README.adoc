@@ -1,5 +1,7 @@
 = post-command-current-buffer-changed-functions
 
+image:https://travis-ci.org/10sr/post-command-current-buffer-changed-functions-el.svg?branch=master["Build Status", link="https://travis-ci.org/10sr/post-command-current-buffer-changed-functions-el"]
+
 Hook run when current buffer changed
 
 
