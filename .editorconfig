@@ -1,0 +1,15 @@
+[*]
+indent_style = space
+
+end_of_line = lf
+
+max_line_length = 80
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.adoc]
+emacs_mode = adoc
+
+[LICENSE]
+max_line_length = 70
+emacs_mode = text

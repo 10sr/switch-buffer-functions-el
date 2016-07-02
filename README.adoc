@@ -1,0 +1,30 @@
+= post-command-current-buffer-changed-functions-el
+
+Hook run when current buffer changed
+
+
+== What is This?
+
+This is a Emacs Lisp package that provides a hook variable
+`post-command-current-buffer-changed-functions`.
+
+This hook will be run when the current buffer has been changed after each
+interactive command, i.e. `post-command-hook` is called.
+
+When functions are hooked, they will be called with the previous buffer and
+the current buffer.  For example, if you eval:
+
+[source,lisp]
+----
+(add-hook 'post-command-current-buffer-changed-functions
+          (lambda (prev cur) (message "%S -> %S" prev cur)))
+----
+
+then the message like `"#<buffer *Messages*> -> #<buffer init.el<.emacs.d>>"`
+will be displayed to the echo area each time when you switch the current
+buffer.
+
+
+== License
+
+This software is Unlicensed. See `LICENSE` for details.
