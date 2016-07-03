@@ -77,8 +77,8 @@ This function should be hooked to `post-command-hook'."
       (setq switch-buffer-functions--last-buffer
             current)
       (run-hook-with-args 'switch-buffer-functions
-                          current
-                          previous))))
+                          previous
+                          current))))
 
 ;;;###autoload
 (add-hook 'post-command-hook
