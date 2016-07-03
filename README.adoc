@@ -1,6 +1,6 @@
-= post-command-current-buffer-changed-functions
+= switch-buffer-functions
 
-image:https://travis-ci.org/10sr/post-command-current-buffer-changed-functions-el.svg?branch=master["Build Status", link="https://travis-ci.org/10sr/post-command-current-buffer-changed-functions-el"]
+image:https://travis-ci.org/10sr/switch-buffer-functions-el.svg?branch=master["Build Status", link="https://travis-ci.org/10sr/switch-buffer-functions-el"]
 
 Hook run when current buffer changed
 
@@ -8,7 +8,7 @@ Hook run when current buffer changed
 == What is This?
 
 This is a Emacs Lisp package that provides a hook variable
-`post-command-current-buffer-changed-functions`.
+`switch-buffer-functions`.
 
 This hook will be run when the current buffer has been changed after each
 interactive command, i.e. `post-command-hook` is called.
@@ -18,7 +18,7 @@ the current buffer.  For example, if you eval:
 
 [source,elisp]
 ----
-(add-hook 'post-command-current-buffer-changed-functions
+(add-hook 'switch-buffer-functions
           (lambda (prev cur) (message "%S -> %S" prev cur)))
 ----
 

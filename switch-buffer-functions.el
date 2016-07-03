@@ -1,7 +1,7 @@
-;;; post-command-current-buffer-changed-functions.el --- Hook run when current buffer changed
+;;; switch-buffer-functions.el --- Hook run when current buffer changed
 
 ;; Author: 10sr <8slashes+el [at] gmail [dot] com>
-;; URL: https://github.com/10sr/post-command-current-buffer-changed-functions-el
+;; URL: https://github.com/10sr/switch-buffer-functions-el
 ;; Version: 0.0.1
 ;; Keywords: hook utility
 
@@ -34,8 +34,7 @@
 
 ;;; Commentary:
 
-;; This package provides a hook variable
-;; `post-command-current-buffer-changed-functions'.
+;; This package provides a hook variable `switch-buffer-functions'.
 
 ;; This hook will be run when the current buffer has been changed after each
 ;; interactive command, i.e. `post-command-hook' is called.
@@ -43,7 +42,7 @@
 ;; When functions are hooked, they will be called with the previous buffer and
 ;; the current buffer.  For example, if you eval:
 
-;; (add-hook 'post-command-current-buffer-changed-functions
+;; (add-hook 'switch-buffer-functions
 ;;           (lambda (prev cur) (message "%S -> %S" prev cur)))
 
 ;; then the message like "#<buffer *Messages*> -> #<buffer init.el<.emacs.d>>"
@@ -53,38 +52,38 @@
 ;;; Code:
 
 ;;;###autoload
-(defvar post-command-current-buffer-changed-functions
+(defvar switch-buffer-functions
   nil
   "A list of functions to be called when the current buffer has been changed.
 Each is passed two arguent, the previous buffer and the current buffer.")
 
-(defvar post-command-current-buffer-changed-functions--last-buffer
+(defvar switch-buffer-functions--last-buffer
   nil
   "The last current buffer.")
 
 ;;;###autoload
-(defun post-command-current-buffer-changed-functions-run ()
-  "Run `post-command-current-buffer-changed-functions' if needed.
+(defun switch-buffer-functions-run ()
+  "Run `switch-buffer-functions' if needed.
 
 This function checks the result of `current-buffer', and run
-`post-command-current-buffer-changed-functions' when it has been changed from
+`switch-buffer-functions' when it has been changed from
 the last buffer.
 
 This function should be hooked to `post-command-hook'."
   (unless (eq (current-buffer)
-              post-command-current-buffer-changed-functions--last-buffer)
+              switch-buffer-functions--last-buffer)
     (let ((current (current-buffer))
-          (previous post-command-current-buffer-changed-functions--last-buffer))
-      (setq post-command-current-buffer-changed-functions--last-buffer
+          (previous switch-buffer-functions--last-buffer))
+      (setq switch-buffer-functions--last-buffer
             current)
-      (run-hook-with-args 'post-command-current-buffer-changed-functions
+      (run-hook-with-args 'switch-buffer-functions
                           current
                           previous))))
 
 ;;;###autoload
 (add-hook 'post-command-hook
-          'post-command-current-buffer-changed-functions-run)
+          'switch-buffer-functions-run)
 
-(provide 'post-command-current-buffer-changed-functions)
+(provide 'switch-buffer-functions)
 
-;;; post-command-current-buffer-changed-functions.el ends here
+;;; switch-buffer-functions.el ends here
