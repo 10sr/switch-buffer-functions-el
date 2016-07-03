@@ -55,7 +55,7 @@
 (defvar switch-buffer-functions
   nil
   "A list of functions to be called when the current buffer has been changed.
-Each is passed two arguent, the previous buffer and the current buffer.")
+Each is passed two arguments, the previous buffer and the current buffer.")
 
 (defvar switch-buffer-functions--last-buffer
   nil
