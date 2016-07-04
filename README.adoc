@@ -1,6 +1,7 @@
 = switch-buffer-functions
 
 image:https://travis-ci.org/10sr/switch-buffer-functions-el.svg?branch=master["Build Status", link="https://travis-ci.org/10sr/switch-buffer-functions-el"]
+image:https://melpa.org/packages/switch-buffer-functions-badge.svg["MELPA", link=https://melpa.org/#/switch-buffer-functions]
 
 Hook run when current buffer changed
 
