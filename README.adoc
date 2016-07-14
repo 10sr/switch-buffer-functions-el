@@ -24,7 +24,7 @@ the current buffer.  For example, if you eval:
           (lambda (prev cur) (message "%S -> %S" prev cur)))
 ----
 
-then the message like `"#<buffer \*Messages\*> -> #<buffer init.el<.emacs.d>>"`
+then the message like `"#<buffer \*Messages*> -> #<buffer init.el<.emacs.d>>"`
 will be displayed to the echo area each time when you switch the current
 buffer.
 
