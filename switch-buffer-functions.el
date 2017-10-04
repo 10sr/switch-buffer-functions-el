@@ -61,6 +61,10 @@ Each is passed two arguments, the previous buffer and the current buffer.")
   nil
   "The last current buffer.")
 
+(defvar switch-buffer-functions--running-p
+  nil
+  "Non-nil if currently inside of run `switch-buffer-functions-run'.")
+
 ;;;###autoload
 (defun switch-buffer-functions-run ()
   "Run `switch-buffer-functions' if needed.
@@ -69,16 +73,18 @@ This function checks the result of `current-buffer', and run
 `switch-buffer-functions' when it has been changed from
 the last buffer.
 
-This function should be hooked to `post-command-hook'."
-  (unless (eq (current-buffer)
-              switch-buffer-functions--last-buffer)
-    (let ((current (current-buffer))
+This function should be hooked to `buffer-list-update-hook'."
+  (unless switch-buffer-functions--running-p
+    (let ((switch-buffer-functions--running-p t)
+          (current (current-buffer))
           (previous switch-buffer-functions--last-buffer))
-      (setq switch-buffer-functions--last-buffer
-            current)
-      (run-hook-with-args 'switch-buffer-functions
-                          previous
-                          current))))
+      (unless (eq previous
+                  current)
+        (run-hook-with-args 'switch-buffer-functions
+                            previous
+                            current)
+        (setq switch-buffer-functions--last-buffer
+              (current-buffer))))))
 
 ;;;###autoload
 (add-hook 'buffer-list-update-hook
