@@ -81,7 +81,7 @@ This function should be hooked to `post-command-hook'."
                           current))))
 
 ;;;###autoload
-(add-hook 'post-command-hook
+(add-hook 'buffer-list-update-hook
           'switch-buffer-functions-run)
 
 (provide 'switch-buffer-functions)
