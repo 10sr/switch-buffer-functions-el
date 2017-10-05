@@ -35,9 +35,7 @@
 ;;; Commentary:
 
 ;; This package provides a hook variable `switch-buffer-functions'.
-
-;; This hook will be run when the current buffer has been changed after each
-;; interactive command, i.e. `post-command-hook' is called.
+;; This hook will be run when the current buffer has been changed.
 
 ;; When functions are hooked, they will be called with the previous buffer and
 ;; the current buffer.  For example, if you eval:
