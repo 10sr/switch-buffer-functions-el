@@ -4,7 +4,7 @@ image:https://travis-ci.org/10sr/switch-buffer-functions-el.svg?branch=master["B
 image:https://melpa.org/packages/switch-buffer-functions-badge.svg["MELPA", link=https://melpa.org/\#/switch-buffer-functions]
 image:https://stable.melpa.org/packages/switch-buffer-functions-badge.svg["MELPA Stable", link=https://stable.melpa.org/#/switch-buffer-functions]
 
-Hook run when current buffer changed
+Hook run when switching current buffer
 
 
 == What is This?
@@ -15,7 +15,7 @@ This is a Emacs Lisp package that provides a hook variable
 This hook will be run when the current buffer has been changed after each
 interactive command, i.e. when `post-command-hook` is called.
 
-When functions are hooked, they will be called with the previous buffer and
+When functions are added to the hook, they will be called with the previous buffer and
 the current buffer.  For example, if you eval:
 
 [source,elisp]
