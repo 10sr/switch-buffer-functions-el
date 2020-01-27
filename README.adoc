@@ -21,9 +21,9 @@ the current buffer.  For example, if you eval:
 [source,elisp]
 ----
 (add-hook 'switch-buffer-functions
-          (lambda (prev cur)
-            (cl-assert (eq cur (current-buffer)))  ;; Always t
-            (message "%S -> %S" prev cur)))
+          (lambda (prev curr)
+            (cl-assert (eq curr (current-buffer)))  ;; Always t
+            (message "%S -> %S" prev curr)))
 ----
 
 then the message like `"#<buffer \*Messages*> -> #<buffer init.el<.emacs.d>>"`
