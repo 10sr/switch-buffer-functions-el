@@ -43,7 +43,9 @@
 ;; the current buffer.  For example, if you eval:
 
 ;; (add-hook 'switch-buffer-functions
-;;           (lambda (prev cur) (message "%S -> %S" prev cur)))
+;;           (lambda (prev cur)
+;;             (cl-assert (eq cur (current-buffer)))  ;; Always t
+;;             (message "%S -> %S" prev cur)))
 
 ;; then the message like "#<buffer *Messages*> -> #<buffer init.el<.emacs.d>>"
 ;; will be displayed to the echo area each time when you switch the current
