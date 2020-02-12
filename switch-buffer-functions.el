@@ -64,7 +64,7 @@ Each is passed two arguments, the previous buffer and the current buffer.")
   "The last current buffer.")
 
 ;;;###autoload
-(defun switch-buffer-functions-run ()
+(defun switch-buffer-functions-run (&rest _)
   "Run `switch-buffer-functions' if needed.
 
 This function checks the result of `current-buffer', and run
@@ -83,8 +83,9 @@ This function should be hooked to `post-command-hook'."
                           current))))
 
 ;;;###autoload
-(add-hook 'post-command-hook
-          'switch-buffer-functions-run)
+(if (boundp 'window-buffer-change-functions)
+    (add-hook 'window-buffer-change-functions 'switch-buffer-functions-run)
+  (add-hook 'post-command-hook 'switch-buffer-functions-run))
 
 (provide 'switch-buffer-functions)
 
